@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/css/basic.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+
+  <div class="black-bg">
+    <div class="white-bg">
+
+      <div class="w-100">
+
+        <h2>contactUs</h2>
+        <div>
+          <h4>your Email</h4>
+          <input class="form-input" placeholder="email@examil.com"></input>
+        </div>
+      </div>
+
+      <div class="w-50">
+        <h4>First name</h4>
+        <input class="form-input"></input>
+      </div>
+
+      <div class="w-50">
+        <h4>Last name</h4>
+        <input class="form-input"></input>
+      </div>
+
+      <div class="w-100">
+        <h4>Message</h4>
+        <textarea class="form-input"></textarea>
+      </div>
+
+      <div>
+        <input id="sub" type="checkbox">
+        <label for="sub">Subscribe</label>
+        <button class="yellow-button">SEND</button>
+      </div>
+
+      <button class="btn btn-danger" id="close">닫기</button>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+
+    <!-- <div class="flex-container">
+
+      <div class="flex-item">
+        <p>Logo</p>
+      </div>
+      <div class="flex-item" style="flex-grow : 4"></div>
+      <div class="flex-item">
+        <p>PRODUCT</p>
+      </div>
+      <div class="flex-item">
+        <p>PRODUCT</p>
+      </div> -->
+    <ul class="list">
+      <li class="tab-button">Products</li>
+      <li class="tab-button orange">Information</li>
+      <li class="tab-button">Shipping</li>
+    </ul>
+
+
+    <div class="shop-bg">
+      <div class="shop-container" style="overflow: hidden;">
+        <div class="overlay-wrap">
+          <div class="overlay-black">
+            <p>$60</p>
+          </div>
+          <img class="shop-img" src="productImg/product1-1.jpg">
+        </div>
+        
+        <div class="overlay-wrap">
+          <div class="overlay-black">
+            <p>$60</p>
+          </div>
+          <img class="shop-img" src="productImg/product2.jpg">
+        </div>
+
+
+        <div class="overlay-wrap">
+          <div class="overlay-black">
+            <p>$60</p>
+          </div>
+          <img class="shop-img" src="productImg/product3.jpg">
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+    <!-- </div> -->
+
+    <div class="tab-content">
+      <p>상품설명입니다. Product</p>
+    </div>
+    <div class="tab-content show">
+      <p>스펙설명입니다. Information</p>
+    </div>
+    <div class="tab-content">
+      <p>배송정보입니다. Shipping</p>
+    </div>
+  </div>
+
+  <p class="hello">안녕</p>
+  <p class="hello">안녕</p>
+  <p class="hello">안녕</p>
+  <button id="test-btn">버튼</button>
+
+
+  <button id="contact">contactUs</button>
+
+  <script>
+    $('.hello').html('바보')
+    $('#test-btn').on("click", function () {
+      $(".hello").hide()
+    })
+
+    $('#contact').on('click', function () {
+      $('.black-bg').addClass('show-modal')
+    })
+
+
+
+    /*
+    e.target; 유저가 실제로 누른 거
+    e.currentTarget 이벤트리스너가 달린 곳
+    this = e.currentTarget
+    e.preventDefault => 이벤트 발생 방지
+    e.stopPropagation => 이벤트 버블링 방지*/
+    $(".black-bg").on('click', function (e) {
+      if ($(e.target) == $(".black-bg")) {
+        $('.black-bg').removeClass('show-modal')
+      }
+    })
+
+
+    $("#close").on("click", function () {
+      $(".black-bg").removeClass("show-modal")
+    })
+
+    $(".tab-button").on("click", function (e) {
+      $('.tab-button').removeClass("orange")
+      $(e.target).addClass("orange")
+    })
+
+
+    for (let i = 0; i < 3; i++) {
+      $('.tab-button').eq(i).on('click', function () {
+        $('.tab-button').removeClass("orange")
+        $('.tab-button').eq(i).addClass("orange")
+        $('.tab-content').removeClass("show")
+        $('.tab-content').eq(i).addClass("show")
+      });
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>
